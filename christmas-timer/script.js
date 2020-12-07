@@ -14,15 +14,15 @@ function countdown(){
     console.log(typeof(days));
 
     document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("hours").innerHTML = format(hours);
+    document.getElementById("minutes").innerHTML = format(minutes);
+    document.getElementById("seconds").innerHTML = format(seconds);
 
 }
 
-
-
-
+function format(time){
+    return time < 10 ? `0${time}` : time;
+}
 
 
 countdown();
