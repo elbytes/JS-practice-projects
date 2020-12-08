@@ -1,6 +1,5 @@
 const christmas = '25 Dec 2020';
 
-
 function countdown(){
     const christmasDate = new Date(christmas);
     const currentDate = new Date();
