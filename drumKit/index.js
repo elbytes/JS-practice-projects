@@ -1,3 +1,4 @@
+//detect keys
 function keyCheck(keyChar){
     switch(keyChar){
         case "w":
@@ -34,12 +35,15 @@ function keyCheck(keyChar){
    }
 }
 
+//detect button press
 for(var i=0; i<document.querySelectorAll(".drum").length; i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", function(){
         var buttonInnerHTML = this.innerHTML;
         keyCheck(buttonInnerHTML);
     });
 }
+
+//detect keyboard press
 document.addEventListener("keydown", function(event){
     keyCheck(event.key);
 });
