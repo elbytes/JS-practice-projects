@@ -8,10 +8,21 @@ const generateTodo = todo =>{
                         <i class="far fa-trash-alt delete"></i>
                     </li>`;
     ul.innerHTML+=html;
-}
+};
 
 addForm.addEventListener('submit', e=>{
     e.preventDefault();
     const todo = addForm.add.value.trim();
-    generateTodo(todo);
+    if(todo.length){
+        generateTodo(todo);
+        addForm.reset();
+    }
+    
+});
+
+
+ul.addEventListener('click', e =>{
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
 });
