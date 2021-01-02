@@ -1,16 +1,17 @@
 //jshint esversion:6
-const btn = document.querySelector('button');
-const popup = document.querySelector('.popup-wrapper');
-const close = document.querySelector('.popup-close');
+const correctAnswers = ['B', 'A', 'B', 'A', 'B'];
+const form = document.querySelector('.quiz-form');
 
-btn.addEventListener('click', ()=>{
-    popup.style.display = 'block';
-});
+form.addEventListener('submit', e=>{
+    e.preventDefault();
 
-close.addEventListener('click', ()=>{
-    popup.style.display = 'none';
-});
-
-popup.addEventListener('click', ()=>{
-        popup.style.display = 'none';
+    let score = 0;
+    const userAnswers = [form.q1.value, form.q2.value, form.q3.value, form.q4.value, form.q5.value];
+    
+    userAnswers.forEach((answer, index)=>{
+        if(answer === correctAnswers[index]){
+            score +=20;
+        }
+    });
+    console.log(score);
 });
