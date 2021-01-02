@@ -1,7 +1,8 @@
 //jshint esversion:6
 const correctAnswers = ['B', 'A', 'B', 'A', 'B'];
 const form = document.querySelector('.quiz-form');
-
+const result = document.querySelector('.result');
+const scoreResult = document.querySelector('span');
 form.addEventListener('submit', e=>{
     e.preventDefault();
 
@@ -13,5 +14,17 @@ form.addEventListener('submit', e=>{
             score +=20;
         }
     });
-    console.log(score);
+    scrollTo(0,0);
+    
+    result.classList.remove('d-none'); 
+
+    let output = 0;
+    const timer = setInterval(()=>{
+        scoreResult.textContent = `${output}%`;
+        if(output === score){
+            clearInterval(timer);
+        } else{
+            output++;
+        }
+    }, 10);
 });
