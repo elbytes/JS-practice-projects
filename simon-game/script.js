@@ -58,7 +58,7 @@ function checkAnswer(currentLevel){
         setTimeout(() => {
             $("body").removeClass("game-over");
             }, 200);
-            $("h1").text("Game Over! Press Any Key to Restart!");
+            $("h1").text("Game Over\n Press Any Key to Restart!");
             $(document).keypress(startOver());
         }
 }
