@@ -19,12 +19,3 @@ const getCurrent = async(locationKey)=>{
     return data[0];
 };
 
-
-const city = getCity('statecollege').then(data => {
-    return getCurrent(data.Key);
-}).then(data => {
-    console.log(data);
-})
-.catch(err => console.log(err.message));
-
-getCurrent(335315);
