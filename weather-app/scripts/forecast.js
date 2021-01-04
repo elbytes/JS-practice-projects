@@ -20,6 +20,7 @@ const getCurrent = async(locationKey)=>{
     return data[0];
 };
 
+
 const city = getCity('statecollege').then(data => {
     return getCurrent(data.Key);
 }).then(data => {
