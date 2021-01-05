@@ -29,11 +29,14 @@ if(weather.IsDayTime){
 } else{
     dayNight = 'icons/night.svg';
 }
-time.setAttribute("src", dayNight);
+time.setAttribute('src', dayNight);
 
     if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
     }
+//update icon
+const weatherIcon = `icons/${weather.WeatherIcon}.svg`;
+icon.setAttribute('src', weatherIcon);
 };
 
 const updateCity = async (city) =>{
