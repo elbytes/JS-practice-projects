@@ -4,19 +4,24 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 
 const updateUi = (data)=>{
-    const cityDetails = data.cityData;
-    const cityWeather = data.weather;
+    //const cityDetails = data.cityData;
+    //const cityWeather = data.weather;
+    //using destructuring:
+    const {cityData, weather} = data;
 
     details.innerHTML = `<div class="text-muted text-uppercase text-center details">
     <h5 class="my-3">
-        ${cityDetails.EnglishName}
+        ${cityData.EnglishName}
     </h5>
-    <div class="my-3">${cityWeather.WeatherText}</div>
+    <div class="my-3">${weather.WeatherText}</div>
     <div class="display-4 my-4">
-        <span>${cityWeather.Temperature.Imperial.Value}</span>
+        <span>${weather.Temperature.Imperial.Value}</span>
         <span>&deg;F</span>
     </div>
 </div>`;
+    if(card.classList.contains('d-none')){
+        card.classList.remove('d-none');
+    }
 };
 
 const updateCity = async (city) =>{
