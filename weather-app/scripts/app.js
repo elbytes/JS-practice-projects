@@ -5,6 +5,7 @@ const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 
+
 const updateUi = (data)=>{
     //using destructuring:
     const {cityData, weather} = data;
@@ -50,4 +51,13 @@ cityInput.addEventListener('submit', e =>{
     updateCity(city)
         .then(data => updateUi(data))
         .catch(err => console.log(err));
-    });
+    //set localStorage
+    localStorage.setItem('city', city);
+    
+});
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data => updateUi(data))
+    .catch(err => console.log(er));
+}
