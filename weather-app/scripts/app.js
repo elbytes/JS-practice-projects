@@ -34,12 +34,6 @@ const weatherIcon = `icons/${weather.WeatherIcon}.svg`;
 icon.setAttribute('src', weatherIcon);
 };
 
-const updateCity = async (city) =>{
-    const cityData = await getCity(city); //forecast.js loads before app.js
-    const weather = await getCurrent(cityData.Key); 
-    //using object shorthand notaion:
-    return {cityData, weather};
-};
 
 cityInput.addEventListener('submit', e =>{
     e.preventDefault();
