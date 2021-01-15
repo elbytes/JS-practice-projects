@@ -4,14 +4,21 @@
 
 body{
     font-family: 'Raleway', sans-serif; 
-    margin: 0;
-
-    background-size: cover;
-    background-position: center center;
-    min-height: 100vh;
 }
 
 
-*{
-    box-sizing: border-box;
+
+.container{
+    max-width: 600px;
+}
+
+.btn{
+    background-color: #f54f44;
+    color: white;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus{
+    outline: none !important;
 }
