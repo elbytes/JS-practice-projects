@@ -51,22 +51,18 @@ class Chatroom{
     }
 }
 
-const chatroom = new Chatroom('music', 'Opa');
 
-chatroom.getChats((data) =>{
-        console.log(data);
-});
 
 
 //emulate 3 second change room:
-setTimeout(()=>{
-    //change room proprty of chatroom and unsubscribe from old one
-    chatroom.updateRoom('general');
-    chatroom.updateName('el');
-    //set up a new listener and because the room property of chatroom has been updated, this time its listening to 'general'
-    chatroom.getChats((data)=>{
-        console.log(data);
-    });
-    chatroom.addChat('hello');
+// setTimeout(()=>{
+//     //change room proprty of chatroom and unsubscribe from old one
+//     chatroom.updateRoom('general');
+//     chatroom.updateName('el');
+//     //set up a new listener and because the room property of chatroom has been updated, this time its listening to 'general'
+//     chatroom.getChats((data)=>{
+//         console.log(data);
+//     });
+//     //chatroom.addChat('hello');
 
-}, 3000);
+// }, 3000);
