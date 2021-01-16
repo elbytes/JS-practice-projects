@@ -1,5 +1,5 @@
 //jshint esversion:8
-//add new chat documents
+
 class Chatroom{
     constructor(room, username){
         this.room = room;
@@ -23,9 +23,10 @@ class Chatroom{
 
     getChats(callback){
         this.chats
-        .where('room', '==', this.room)
-        .onSnapshot(onSnapshot =>{
-            onSnapshot.docChanges().forEach(change =>{
+        .where('room', '==' , this.room)
+        .orderBy('created_at')
+        .onSnapshot(snapshot =>{
+            snapshot.docChanges().forEach(change =>{
                 if(change.type === 'added'){
                     //update the ui
                     callback(change.doc.data());
@@ -33,16 +34,20 @@ class Chatroom{
             });
         });
     }
+
+    updateName(username){
+        this.username = username;
+    }
+
+    updateRoom(room){
+        this.room = room;
+        console.log('room updated');
+    }
 }
 
-const chatroom = new Chatroom('general', 'el');
+const chatroom = new Chatroom('music', 'Opa');
 
-    chatroom.getChats((data) =>{
+chatroom.getChats((data) =>{
         console.log(data);
     });
 
-//setting up a real time listener to get new chats
-
-//updating the username
-
-//updating the room
