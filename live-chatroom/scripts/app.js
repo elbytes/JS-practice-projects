@@ -14,8 +14,11 @@ newChat.addEventListener('submit', e=>{
         .catch(err => console.log(err));
 });
 
+//check localStorage for username
+const username = localStorage.username ? localStorage.username : 'anon';
+
 //class instances
-const chatroom = new Chatroom('general', 'El');
+const chatroom = new Chatroom('general', username);
 const chatUi = new ChatUI(chatList);
 
 //update username
@@ -24,7 +27,7 @@ newNameForm.addEventListener('submit', e=>{
         const newName = newNameForm.name.value.trim();
         chatroom.updateName(newName);
          newNameForm.reset();
-         updateMssg.innerText = `Username update to ${newName}`;
+         updateMssg.innerText = `Username update to "${newName}"`;
          setTimeout(()=>updateMssg.innerText = '', 3000);
 });
 
