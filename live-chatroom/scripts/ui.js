@@ -4,11 +4,12 @@ class ChatUI{
         this.list = list;
     }
     render(data){
+        const time = dateFns.distanceInWordsToNow(data.created_at.toDate(), {addSuffix: true});
         const html = `
         <li class="list-group-item>
-            <span class="username>${data.username}</span>
+            <span class="username>${data.username}:</span>
             <span>${data.message}</span>
-            <div class="time">${data.created_at.toDate()}</div>
+            <div class="time">${time}</div>
         </li>`;
 
         this.list.innerHTML += html;
