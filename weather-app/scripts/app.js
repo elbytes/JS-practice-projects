@@ -5,7 +5,7 @@ const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 const forecast = new Forecast();
-console.log(forecast);
+//console.log(forecast);
 
 const updateUi = (data)=>{
     //using destructuring:
@@ -23,7 +23,7 @@ const updateUi = (data)=>{
 </div>`;
 
 //update day/night
-let dayNight = weather.IsDayTime ? ('icons/day.svg') : 'icons/night.svg';
+let dayNight = weather.IsDayTime ? 'icons/day.svg' : 'icons/night.svg';
 
 time.setAttribute('src', dayNight);
 
@@ -43,16 +43,15 @@ cityInput.addEventListener('submit', e =>{
     cityInput.reset();
 
     //update the ui with new city
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => updateUi(data))
         .catch(err => console.log(err));
     //set localStorage
-    localStorage.setItem('city', city);
-    
+    localStorage.setItem('city', city);    
 });
 
 if(localStorage.getItem('city')){
-    updateCity(localStorage.getItem('city'))
+    forecast.updateCity(localStorage.getItem('city'))
     .then(data => updateUi(data))
-    .catch(err => console.log(er));
+    .catch(err => console.log(err));
 }
